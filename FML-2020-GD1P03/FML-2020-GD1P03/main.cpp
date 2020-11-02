@@ -11,16 +11,22 @@
 // Author		: Callum Boyce
 //				: Lera Blokhina
 // Mail			: callum.boyce@mds.ac.nz
-//				:
+//				: valeriia.blokhina@mds.ac.nz
 //
-
+#include "stdafx.h"
 #include "Game.h"
 
 int main()
 {
+	srand(static_cast<unsigned>(time(0)));
+
 	Game game;
 
-	game.runGame();
+	while (game.getWindow().isOpen())
+	{
+		game.update();
+		game.render();
+	}
 
 	//End Program
 	return 0;

@@ -11,19 +11,22 @@
 // Author		: Callum Boyce
 //				: Lera Blokhina
 // Mail			: callum.boyce@mds.ac.nz
-//				:
+//				: valeriia.blokhina@mds.ac.nz
 //
 
-#ifndef __GAME_H__
-#define __GAME_H__
-
-#include <SFML/Graphics.hpp>
+#pragma once
+#include "Player.h"
+#include "background.h"
 
 class Game
 {
 private:
 	//Window
 	sf::RenderWindow* window;
+	sf::Event ev;
+
+	Player* player;
+	background* Background;
 
 	//Resources
 
@@ -31,17 +34,21 @@ private:
 
 	//Private Functions
 	void initWindow();
+	void initBackground();
+	void initPlayer();
 
 public:
 	Game();
 	virtual ~Game();
 
 	//Functions
-	void runGame();
-
 	void updatePollEvents();
+	void updatePlayer();
+	void updateCollision();
 	void update();
+	void renderBG();
+	void renderPlayer();
 	void render();
+	const sf::RenderWindow& getWindow() const;
 };
 
-#endif // !__GAME_H__

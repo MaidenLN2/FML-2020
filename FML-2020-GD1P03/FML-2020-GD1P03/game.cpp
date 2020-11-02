@@ -11,18 +11,27 @@
 // Author		: Callum Boyce
 //				: Lera Blokhina
 // Mail			: callum.boyce@mds.ac.nz
-//				:
+//				: valeriia.blokhina@mds.ac.nz
 //
 
+#include "stdafx.h"
 #include "Game.h"
-
 
 //Private Functions
 void Game::initWindow()
 {
 	this->window = new sf::RenderWindow(sf::VideoMode(800, 600), "FML-2020", sf::Style::Close | sf::Style::Titlebar);
 	this->window->setFramerateLimit(60);
-	this->window->setVerticalSyncEnabled(false);
+}
+
+void Game::initBackground()
+{
+	this->Background = new background();
+}
+
+void Game::initPlayer()
+{
+	this->player = new Player();
 }
 
 //Functions
@@ -30,35 +39,73 @@ void Game::initWindow()
 Game::Game()
 {
 	this->initWindow();
+	this->initPlayer();
+	this->initBackground();
 }
 
 Game::~Game()
 {
 	delete this->window;
-}
-
-void Game::runGame()
-{
-	while (this->window->isOpen())
-	{
-		this->update();
-		this->render();
-	}
+	delete this->player;
 }
 
 void Game::updatePollEvents()
 {
-	sf::Event e;
-	while (this->window->pollEvent(e))
+	//Polling the windows events
+	while (this->window->pollEvent(ev))
 	{
-		if (e.Event::type == sf::Event::Closed)
+		if (this->ev.Event::type == sf::Event::Closed)
 			this->window->close();
+
+		if (
+			this->ev.type == sf::Event::KeyReleased && 
+			(
+				this->ev.key.code == sf::Keyboard::A ||
+				this->ev.key.code == sf::Keyboard::D ||
+				this->ev.key.code == sf::Keyboard::S ||
+				this->ev.key.code == sf::Keyboard::W 
+				)
+			)
+		{
+			this->player->resetAnimationTimer();
+		}
+	}
+}
+
+void Game::updatePlayer()
+{
+	this->player->update();
+}
+
+void Game::updateCollision()
+{
+	//Collision for bottom of screen.
+	if (this->player->getPosition().y + this->player->getGlobalBounds().height > this->window->getSize().y)
+	{
+		this->player->setJumping(false);
+		this->player->resetVelocityY();
+		this->player->setPosition(
+			this->player->getPosition().x,
+			this->window->getSize().y - this->player->getGlobalBounds().height
+		);
 	}
 }
 
 void Game::update()
 {
 	this->updatePollEvents();
+	this->updatePlayer();
+	this->updateCollision();
+}
+
+void Game::renderBG()
+{
+	this->Background->render(*this->window);
+}
+
+void Game::renderPlayer()
+{
+	this->player->render(*this->window);
 }
 
 void Game::render()
@@ -66,6 +113,14 @@ void Game::render()
 	this->window->clear(); //Clear the frame
 
 	//Draw all the things!
+	this->renderBG();
+	this->renderPlayer();
 
 	this->window->display(); //Display the new frame!
+}
+
+const sf::RenderWindow& Game::getWindow() const
+{
+	// TODO: insert return statement here
+	return *this->window;
 }
