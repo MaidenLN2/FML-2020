@@ -3,7 +3,7 @@
 
 Projectile::Projectile(AnimationManager& a, Level& lev, int x, int y) :Entity(a, x, y)
 {
-	option("Fireball", 0.1, "moveLeft");
+	option("Projectile", 0.1, "moveLeft");
 }
 
 void Projectile::update(float time)
