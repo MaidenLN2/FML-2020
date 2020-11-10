@@ -4,12 +4,13 @@
 
 using namespace sf;
 
+
 void checkCollisionWithMap(float Dx, float Dy) //to see if enemy collides with map
 {
 	for (int i = y / 32; i < (y + h) / 32; i++)// map elements check
 		for (int j = x / 32; j < (x + w) / 32; j++)
 		{
-			if (TileMap[i][j] == '0')// it's ground tile
+			if (TileMap[i][j] == '0') // it's ground tile
 			{
 				if (Dy > 0) { y = i * 32 - h; }// moving about y-axis (fall/jump)
 				if (Dy < 0) { y = i * 32 + 32; }// upper map limit collision

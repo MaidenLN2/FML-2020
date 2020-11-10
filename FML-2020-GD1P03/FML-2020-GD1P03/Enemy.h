@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "TileMap.h"
 #include "vector"
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 #include "Entity.h"
 
 
@@ -14,7 +14,14 @@ private:
 	int dy;
 
 public:
-	Enemy(Image& image, float X, float Y, int W, int H, String Name) :Entity(image, X, Y, W, H, Name) 
+
+	int x;
+	int y;
+	int h;
+	int w;
+
+
+	Enemy(Image& image, float X, float Y, int W, int H, String Name) : Entity(image, X, Y, W, H, Name) 
 	{
 		if (name == "Bat") 
 		{

@@ -1,26 +1,18 @@
-#include "stdafx.h"
 #include "collision.h"
-#include"Player.h"
-#include"Totem.h"
-#include"Projectile.h"
-#include"Tile.h"
-#include<iostream>
-
-using namespace std;
 
 // Player goes SLAM with enemy
-bool collision::collidesWith(Player& obj1, Enemy& obj2)
+bool collision::collidesWith(Player&, Enemy&)
 {
     // Bounding box of player
     sf::FloatRect Player;
-   
+
     // Bounding box of enemy
     sf::FloatRect Enemy;
 
     if (Player.intersects(Enemy))
     {
         bool Player(false);
-        cout << "YOU DIED" << endl;
+        std::cout << "YOU DIED" << std::endl;
         // migh shove YOU DIED pic if we have time
     }
 
@@ -32,10 +24,32 @@ bool collision::collidesWith(Player& obj1, Enemy& obj2)
     return Player.intersects(Enemy);
 }
 
-bool collision::collidesWith(Projectile& obj1, Player& obj2)
+bool collision::collidesWith(Player&, Totem&)
+{
+    // Bounding box of player
+    sf::FloatRect Player;
+
+    // Bounding box of totem
+    sf::FloatRect Totem;
+
+    if (Player.intersects(Totem))
+    {
+        bool Player(false);
+        std::cout << "YOU DIED" << std::endl;
+        // migh shove YOU DIED pic if we have time
+    }
+
+    else
+    {
+        bool Player(true);
+    }
+
+    return Player.intersects(Totem);
+}
+
+bool collision::collidesWith(Projectile& obj1, Player& obj2) 
 
 // Projectile kills sqirrel, F
-
 {
     // Bounding box of projectile
     sf::FloatRect Projectile;
@@ -46,7 +60,7 @@ bool collision::collidesWith(Projectile& obj1, Player& obj2)
     if (Projectile.intersects(Player))
     {
         bool Player(false);
-        cout << "YOU DIED" << endl;
+        std::cout << "YOU DIED" << std::endl;
         // migh shove YOU DIED pic if we have time
     }
 
@@ -80,4 +94,9 @@ bool collision::collidesWith(Tile& obj1, Player& obj2)
     }
 
     return Tile.intersects(Player);
+}
+
+bool collidesWith(Tile& obj1, Player& obj2)
+{
+    return false;
 }
