@@ -17,12 +17,12 @@
 #include "stdafx.h"
 #include "Tile.h"
 
-Tile::Tile(sf::Texture& texture_sheet, sf::IntRect texture_rect, bool damaging)
-	: damaging(damaging)
+Tile::Tile(sf::Texture& texture_sheet, sf::IntRect texture_rect, unsigned x, unsigned y, float scale)
 {
 	this->sprite.setTexture(texture_sheet);
 	this->sprite.setTextureRect(texture_rect);
-
+	this->sprite.setPosition(x, y);
+	this->sprite.setScale(scale, scale);
 }
 
 const sf::FloatRect Tile::getGlobalBounds() const

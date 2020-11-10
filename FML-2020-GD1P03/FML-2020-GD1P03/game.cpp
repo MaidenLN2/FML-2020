@@ -29,6 +29,11 @@ void Game::initBackground()
 	this->Background = new background();
 }
 
+void Game::generateLevel(int _levelCounter)
+{
+	this->level = new SceneNode(_levelCounter);
+}
+
 void Game::initPlayer()
 {
 	this->player = new Player();
@@ -38,9 +43,11 @@ void Game::initPlayer()
 
 Game::Game()
 {
+	levelCounter = 0;
 	this->initWindow();
 	this->initPlayer();
 	this->initBackground();
+	this->generateLevel(levelCounter);
 }
 
 Game::~Game()
@@ -71,6 +78,10 @@ void Game::updatePollEvents()
 			this->player->resetAnimationTimer();
 		}
 	}
+}
+
+void Game::updateLevel()
+{
 }
 
 void Game::updatePlayer()
@@ -104,6 +115,11 @@ void Game::renderBG()
 	this->Background->render(*this->window);
 }
 
+void Game::renderLevel()
+{
+	this->level->Render(*this->window);
+}
+
 void Game::renderPlayer()
 {
 	this->player->render(*this->window);
@@ -115,7 +131,9 @@ void Game::render()
 
 	//Draw all the things!
 	this->renderBG();
+	this->renderLevel();
 	this->renderPlayer();
+
 
 	this->window->display(); //Display the new frame!
 }

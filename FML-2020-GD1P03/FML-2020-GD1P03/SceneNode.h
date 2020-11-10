@@ -4,12 +4,14 @@
 class SceneNode
 {
 protected:
-    sf::Texture textureSheet;
-    TileMap levelMap;
+    sf::Texture textureSheet1;
+    sf::Texture textureSheet2;
+    TileMap* levelMap;
 
-    void SceneInit();
+
 public:
     // constructor
+    SceneNode();
     SceneNode(int _level);
 
     // destructor - calls destroy
@@ -18,7 +20,8 @@ public:
 
     //Functions
     // update our scene node
-    void Update();
+    void SceneInit(int _level);
+    void Update(int _level);
     void Render(sf::RenderTarget& target);
 };
 

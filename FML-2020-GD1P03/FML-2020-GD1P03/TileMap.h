@@ -12,10 +12,9 @@ public:
 	~TileMap();
 
 	//Functions
-	void addTile(unsigned x, unsigned y);
-	void removeTile(unsigned x, unsigned y);
+	void addTile(unsigned x, unsigned y, sf::Texture& _texture, sf::IntRect texture_rect, int _layer, float scale);
 
 	void update();
-	void render();
+	void render(sf::RenderTarget& target);
 };
 

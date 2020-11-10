@@ -17,6 +17,7 @@
 #pragma once
 #include "Player.h"
 #include "background.h"
+#include "SceneNode.h"
 
 class Game
 {
@@ -25,16 +26,20 @@ private:
 	sf::RenderWindow* window;
 	sf::Event ev;
 
+	SceneNode* level;
 	Player* player;
 	background* Background;
+	int levelCounter;
 
 	//Resources
 
 	//Player
+	int* playerLives;
 
 	//Private Functions
 	void initWindow();
 	void initBackground();
+	void generateLevel(int _levelCounter);
 	void initPlayer();
 
 public:
@@ -43,10 +48,12 @@ public:
 
 	//Functions
 	void updatePollEvents();
+	void updateLevel();
 	void updatePlayer();
 	void updateCollision();
 	void update();
 	void renderBG();
+	void renderLevel();
 	void renderPlayer();
 	void render();
 	const sf::RenderWindow& getWindow() const;
