@@ -1,6 +1,7 @@
 #pragma once
-#include"Animation.h"
-#include"Level.h"
+#include "stdafx.h"
+
+
 
 //class AnimationManager
 //{
@@ -40,9 +41,7 @@ class Enemy
 {
 public:
 
-	Enemy(AnimationManager& a, Level& lev, int x, int y);
-	void update(float time);
-	void Collision(float Dx, float Dy);
+
 };
 
 

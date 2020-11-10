@@ -54,10 +54,11 @@ void Game::updatePollEvents()
 	//Polling the windows events
 	while (this->window->pollEvent(ev))
 	{
+		//Closes the window if the X button is clicked on the top right.
 		if (this->ev.Event::type == sf::Event::Closed)
 			this->window->close();
 
-		if (
+		if ( //Resets the player animation when any of the direction keys are released.
 			this->ev.type == sf::Event::KeyReleased && 
 			(
 				this->ev.key.code == sf::Keyboard::A ||

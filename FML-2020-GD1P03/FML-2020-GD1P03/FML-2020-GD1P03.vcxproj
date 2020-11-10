@@ -147,16 +147,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Animation.cpp" />
     <ClCompile Include="background.cpp" />
-    <ClCompile Include="DOFNode.cpp" />
     <ClCompile Include="Enemy.cpp" />
-    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="game.cpp" />
-    <ClCompile Include="GeometryNode.cpp" />
-    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Projectile.cpp" />
     <ClCompile Include="SceneNode.cpp" />
@@ -169,15 +163,9 @@
     <ClCompile Include="Totem.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.h" />
     <ClInclude Include="background.h" />
-    <ClInclude Include="DOFNode.h" />
     <ClInclude Include="Enemy.h" />
-    <ClInclude Include="Entity.h" />
     <ClInclude Include="game.h" />
-    <ClInclude Include="GeometryNode.h" />
-    <ClInclude Include="Level.h" />
-    <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="SceneNode.h" />

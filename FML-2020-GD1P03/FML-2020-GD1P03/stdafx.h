@@ -18,6 +18,9 @@
 #include <ctime>
 #include <iostream>
 #include <time.h>
+#include <vector>
+#include <string>
+#include <map>
 
 //SFML
 #include <SFML/System.hpp>

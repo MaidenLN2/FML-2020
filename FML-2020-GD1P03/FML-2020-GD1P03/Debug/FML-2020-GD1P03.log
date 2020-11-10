@@ -1,6 +1,2 @@
-﻿Entity.obj : error LNK2005: "public: __thiscall Entity::Entity(class AnimationManager &,int,int)" (??0Entity@@QAE@AAVAnimationManager@@HH@Z) already defined in Enemy.obj
-Entity.obj : error LNK2005: "public: virtual __thiscall Entity::~Entity(void)" (??1Entity@@UAE@XZ) already defined in Enemy.obj
-Entity.obj : error LNK2005: "public: void __thiscall Entity::draw(class sf::RenderWindow &)" (?draw@Entity@@QAEXAAVRenderWindow@sf@@@Z) already defined in Enemy.obj
-Entity.obj : error LNK2005: "public: class sf::Rect<float> __thiscall Entity::getRect(void)" (?getRect@Entity@@QAE?AV?$Rect@M@sf@@XZ) already defined in Enemy.obj
-Entity.obj : error LNK2005: "public: void __thiscall Entity::option(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,float,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (?option@Entity@@QAEXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@M0@Z) already defined in Enemy.obj
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe : fatal error LNK1169: one or more multiply defined symbols found
+﻿  Totem.cpp
+  FML-2020-GD1P03.vcxproj -> D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe
