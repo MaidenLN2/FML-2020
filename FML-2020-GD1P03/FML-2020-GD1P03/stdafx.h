@@ -21,6 +21,9 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <sstream>
+#include <cstdlib> 
+#include <cstdio> 
 
 //SFML
 #include <SFML/System.hpp>

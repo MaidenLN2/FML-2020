@@ -1,2 +1,80 @@
-﻿  SceneNode.cpp
-  FML-2020-GD1P03.vcxproj -> D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe
+﻿  collision.cpp
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(2,9): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(23,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(23,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.h(21,1): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.h(16,1): warning C4305: '=': truncation from 'double' to 'float'
+  Enemy.cpp
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(23,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(23,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.h(21,1): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(9,15): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(9,28): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(9,32): error C2065: 'h': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(10,16): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(10,29): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(10,33): error C2065: 'w': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(12,7): error C2059: syntax error: '['
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(13,4): error C2143: syntax error: missing ';' before '{'
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(14,19): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(14,32): error C2065: 'h': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(15,19): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(16,19): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(16,32): error C2065: 'w': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(16,35): error C2065: 'dx': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(16,46): error C2065: 'sprite': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(17,19): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(17,36): error C2065: 'dx': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(17,46): error C2065: 'sprite': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(24,6): error C2065: 'name': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(27,25): error C2065: 'dx': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(28,3): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(28,8): error C2065: 'dx': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(29,3): error C2065: 'sprite': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(29,22): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(29,26): error C2065: 'w': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(29,33): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(29,37): error C2065: 'h': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(30,7): error C2065: 'health': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Enemy.cpp(32,4): error C2065: 'alive': undeclared identifier
+  Entity.cpp
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(23,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(23,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.cpp(7,1): error C2084: function 'Entity::Entity(sf::Image &,float,float,int,int,sf::String)' already has a body
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(16): message : see previous definition of '{ctor}'
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.cpp(13,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.cpp(13,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Totem.cpp
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(23,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Entity.h(23,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.h(16,1): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(9,15): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(9,28): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(9,32): error C2065: 'h': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(10,16): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(10,29): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(10,33): error C2065: 'w': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(12,7): error C2059: syntax error: '['
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(13,4): error C2143: syntax error: missing ';' before '{'
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(14,19): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(14,32): error C2065: 'h': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(15,19): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(16,19): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(16,32): error C2065: 'w': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(16,35): error C2065: 'dx': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(16,46): error C2065: 'sprite': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(17,19): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(17,36): error C2065: 'dx': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(17,46): error C2065: 'sprite': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(24,6): error C2065: 'name': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(27,25): error C2065: 'dx': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(28,3): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(28,8): error C2065: 'dx': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(29,3): error C2065: 'sprite': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(29,22): error C2065: 'x': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(29,26): error C2065: 'w': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(29,33): error C2065: 'y': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(29,37): error C2065: 'h': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(30,7): error C2065: 'health': undeclared identifier
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.cpp(32,4): error C2065: 'alive': undeclared identifier
+  Generating Code...

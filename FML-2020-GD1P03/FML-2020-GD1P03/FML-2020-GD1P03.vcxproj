@@ -148,7 +148,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="background.cpp" />
+    <ClCompile Include="collision.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -164,7 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="background.h" />
+    <ClInclude Include="collision.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Projectile.h" />
