@@ -1,25 +1,7 @@
 ﻿  collision.cpp
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.h(16,1): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(20,10): error C3927: '->': trailing return type is not allowed after a non-function declarator
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(20,10): error C3484: syntax error: expected '->' before the return type
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(20,26): error C3613: missing return type after '->' ('int' assumed)
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(20,26): error C3646: 'getGlobalBounds': unknown override specifier
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(20,26): error C2059: syntax error: '('
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(20,58): error C2059: syntax error: ')'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(22,8): error C2334: unexpected token(s) preceding ':'; skipping apparent function body
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(25,10): error C3083: 'Player': the symbol to the left of a '::' must be a type
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(25,18): error C2039: 'collision': is not a member of 'sf'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\SFML\include\SFML\Network\UdpSocket.hpp(37): message : see declaration of 'sf'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(26,1): error C2533: 'collision': constructors not allowed a return type
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(38,10): error C3083: 'Player': the symbol to the left of a '::' must be a type
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(38,18): error C2039: 'colMove': is not a member of 'sf'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\SFML\include\SFML\Network\UdpSocket.hpp(37): message : see declaration of 'sf'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(38,54): error C2039: 'Tile': is not a member of 'sf'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\SFML\include\SFML\Network\UdpSocket.hpp(37): message : see declaration of 'sf'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(46,18): error C2039: 'colMove': is not a member of 'sf::Sprite'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\SFML\include\SFML\Graphics\Sprite.hpp(47): message : see declaration of 'sf::Sprite'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(54,10): error C3083: 'Player': the symbol to the left of a '::' must be a type
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(54,18): error C2039: 'setBounds': is not a member of 'sf'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\SFML\include\SFML\Network\UdpSocket.hpp(37): message : see declaration of 'sf'
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.cpp(131,1): fatal error C1004: unexpected end-of-file found
+D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.h(16,1): warning C4305: '=': truncation from 'double' to 'float'
+  main.cpp
+  Generating Code...
+  LINK : D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe not found or not built by the last incremental link; performing full link
+  FML-2020-GD1P03.vcxproj -> D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe

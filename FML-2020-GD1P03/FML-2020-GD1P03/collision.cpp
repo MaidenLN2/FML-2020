@@ -129,5 +129,44 @@
 //    }
 //}
 
-Tile platform(texture_sheet, texture_rect, x, y, scale);
-platform.getGlobalBounds().intersects(rect.GlobalBounds))
+//Tile platform(texture_sheet, texture_rect, x, y, scale);
+//platform.getGlobalBounds().intersects(rect.GlobalBounds))
+//
+
+bool collision(sf::Sprite Tile)
+{
+    this->setBounds();
+    Tile.getGlobalBounds();
+
+    if (top > Tile.bottom || bottom < sprite2.top || left > sprite2.right || right < sprite2.left)
+    {
+        return false;
+    }
+
+    return true;
+}
+
+
+void colMove(sf::Vector2f& movement, Tile sprite2)
+{
+    if (!this->collision(Tile))
+    {
+        this->move(movement);
+    }
+}
+
+void colMove(float x, float y, sf::Sprite sprite2)
+{
+    if (!this->collision(sprite2))
+    {
+        this->move(x, y);
+    }
+}
+
+void setBounds()
+{
+    top = this->getPosition().y;
+    bottom = this->getPosition().y + this->getTexture()->getSize().y;
+    left = this->getPosition().x;
+    right = this->getPosition().x + this->getTexture()->getSize().y;
+}
