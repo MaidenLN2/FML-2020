@@ -31,10 +31,10 @@ void background::initSprites()
 	this->sBGMountains2.setScale(3.0f, 3.0f);
 	this->sBGTrees.setScale(3.0f, 3.0f);
 
-	this->sBGSky.setPosition(0, 0);
-	this->sBGMountains1.setPosition(0, 100);
-	this->sBGMountains2.setPosition(0, 150);
-	this->sBGTrees.setPosition(0, 120);
+	this->sBGSky.setPosition(-9, 0);
+	this->sBGMountains1.setPosition(0, 0);
+	this->sBGMountains2.setPosition(0, 70);
+	this->sBGTrees.setPosition(0, 70);
 }
 
 background::background()

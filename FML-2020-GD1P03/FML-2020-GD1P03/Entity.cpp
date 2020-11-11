@@ -3,6 +3,14 @@
 
 using namespace sf;
 
+Entity::Entity()
+{
+}
+
+Entity::~Entity()
+{
+}
+
 Entity::Entity(Image& image, float X, float Y, int W, int H, String Name)
 {
 	x = X; y = Y; w = W; h = H; name = Name; moveTimer = 0;

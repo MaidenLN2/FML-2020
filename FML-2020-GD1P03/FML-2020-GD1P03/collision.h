@@ -6,8 +6,6 @@
 #include "Tile.h"
 #include "stdafx.h"
 
-#include <iostream>
-
 // Creating class collision between objects I shoved up my code
 
 class collision

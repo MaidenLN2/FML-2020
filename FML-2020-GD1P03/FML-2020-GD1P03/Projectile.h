@@ -5,6 +5,9 @@
 class Projectile : public Entity
 {
 public:
-	Projectile(initAnimations()& a, TileMap& lev, int x, int y);
+	Projectile();
+	virtual ~Projectile();
+	//	Projectile(initAnimations()& a, TileMap& lev, int x, int y);
 
-	void update(float time);
+	//	void update(float time);
+};

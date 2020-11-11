@@ -20,15 +20,11 @@ public:
 	int h;
 	int w;
 
+	Enemy();
+	virtual ~Enemy();
+	Enemy(Image& image, float X, float Y, int W, int H, String Name);
 
-	Enemy(Image& image, float X, float Y, int W, int H, String Name) : Entity(image, X, Y, W, H, Name) 
-	{
-		if (name == "Bat") 
-		{
-			sprite.setTextureRect(IntRect(0, 0, w, h));
-			dx = 0.1;// speed, dat shit moves
-		}
-	}
+	
 
 	
 };
