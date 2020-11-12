@@ -25,6 +25,8 @@ public:
 
 	const sf::FloatRect getGlobalBounds() const;
 
+	sf::Sprite GetSprite();
+
 	void update();
 	void render(sf::RenderTarget& target);
 

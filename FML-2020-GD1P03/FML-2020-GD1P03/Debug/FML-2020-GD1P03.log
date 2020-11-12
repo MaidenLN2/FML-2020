@@ -1,7 +1,6 @@
-﻿  collision.cpp
-D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.h(16,1): warning C4305: '=': truncation from 'double' to 'float'
-  main.cpp
-  Generating Code...
-  LINK : D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe not found or not built by the last incremental link; performing full link
-  FML-2020-GD1P03.vcxproj -> D:\MDS Classes\GIT Repos\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe
+﻿  game.cpp
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.h(16,1): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(163,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(177,20): warning C4018: '<': signed/unsigned mismatch
+  FML-2020-GD1P03.vcxproj -> C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe

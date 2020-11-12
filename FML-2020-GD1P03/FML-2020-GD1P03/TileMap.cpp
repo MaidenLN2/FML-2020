@@ -23,6 +23,11 @@ void TileMap::addTile(unsigned x, unsigned y, sf::Texture& _texture, sf::IntRect
 	tiles[_layer].push_back(tile);
 }
 
+std::vector<std::vector<Tile*>> TileMap::GetTiles()
+{
+	return tiles;
+}
+
 
 void TileMap::update()
 {

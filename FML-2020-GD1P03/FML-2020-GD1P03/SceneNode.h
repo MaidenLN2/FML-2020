@@ -17,6 +17,8 @@ public:
     // destructor - calls destroy
     virtual ~SceneNode();
 
+    //Accessor
+    TileMap* GetTileMap();
 
     //Functions
     // update our scene node

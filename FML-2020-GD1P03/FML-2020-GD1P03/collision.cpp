@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "collision.h"
-#include "Player.h"
 
 // Player goes SLAM with enemy
 //bool collision::collidesWith(Player&, Enemy&)
@@ -133,40 +132,75 @@
 //platform.getGlobalBounds().intersects(rect.GlobalBounds))
 //
 
-bool collision(sf::Sprite Tile)
+Vector2<bool> collision::collisionCheck(sf::Sprite Defending, sf::Sprite Attacking)
 {
-    this->setBounds();
-    Tile.getGlobalBounds();
+    //setBounds();
+    // Defending sprite's global bounds and associated functions
+    sf::FloatRect DefendingBounds = Defending.getGlobalBounds();
+    auto DefendingBoundsBottom = (DefendingBounds.top - DefendingBounds.height);
+    auto DefendingBoundsRight = (DefendingBounds.left + DefendingBounds.width);
 
-    if (top > Tile.bottom || bottom < sprite2.top || left > sprite2.right || right < sprite2.left)
+    // Attacking sprite's global bounds and associated functions
+    sf::FloatRect AttackingBounds = Attacking.getGlobalBounds();
+    auto AttackingBoundsBottom = (AttackingBounds.top - AttackingBounds.height);
+    auto AttackingBoundsRight = (AttackingBounds.left + AttackingBounds.width);
+
+    Vector2<bool> Check(0, 0);
+
+    if (DefendingBounds.left > AttackingBoundsRight || DefendingBoundsRight < AttackingBounds.left) // Check for x collision first
     {
-        return false;
+        Check.x = 1; // 1 Represents a collision on the x-axis
+    }
+    
+    if ((DefendingBounds.top > AttackingBoundsBottom || DefendingBoundsBottom < AttackingBounds.top)) // Check for y collision second
+    {
+        Check.y = 1;  // 1 Represents a collision on the y-axis
     }
 
-    return true;
+    return Check;
 }
 
-
-void colMove(sf::Vector2f& movement, Tile sprite2)
+Vector2<bool> collision::collisionCheck(sf::Sprite Defending, sf::FloatRect AttackingGlobalBounds)
 {
-    if (!this->collision(Tile))
+    //setBounds();
+
+    // Defending sprite's global bounds and associated functions
+    sf::FloatRect DefendingBounds = Defending.getGlobalBounds();
+    auto DefendingBoundsBottom = (DefendingBounds.top - DefendingBounds.height);
+    auto DefendingBoundsRight = (DefendingBounds.left + DefendingBounds.width);
+
+    // Attacking sprite's global bounds and associated functions
+    auto AttackingBoundsBottom = (AttackingGlobalBounds.top - AttackingGlobalBounds.height);
+    auto AttackingBoundsRight = (AttackingGlobalBounds.left + AttackingGlobalBounds.width);
+
+    Vector2<bool> Check(0, 0);
+
+    if (DefendingBounds.left > AttackingBoundsRight || DefendingBoundsRight < AttackingGlobalBounds.left) // Check for x collision first
     {
-        this->move(movement);
+        Check.x = 1; // 1 Represents a collision on the x-axis
     }
-}
 
-void colMove(float x, float y, sf::Sprite sprite2)
-{
-    if (!this->collision(sprite2))
+    if ((DefendingBounds.top > AttackingBoundsBottom || DefendingBoundsBottom < AttackingGlobalBounds.top)) // Check for y collision second
     {
-        this->move(x, y);
+        Check.y = 1;  // 1 Represents a collision on the y-axis
     }
+
+    return Check;
 }
 
-void setBounds()
-{
-    top = this->getPosition().y;
-    bottom = this->getPosition().y + this->getTexture()->getSize().y;
-    left = this->getPosition().x;
-    right = this->getPosition().x + this->getTexture()->getSize().y;
-}
+
+//void collision::colMove(sf::Vector2f& movement, Tile sprite2)
+//{
+//    if (!collisionCheck(sprite2.GetSprite(), ))
+//    {
+//        move(movement);
+//    }
+//}
+
+//void setBounds()
+//{
+//    top = this->getPosition().y;
+//    bottom = this->getPosition().y + this->getTexture()->getSize().y;
+//    left = this->getPosition().x;
+//    right = this->getPosition().x + this->getTexture()->getSize().y;
+//}

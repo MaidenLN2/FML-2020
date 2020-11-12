@@ -15,6 +15,7 @@
 //
 
 #pragma once
+#include "collision.h"
 
 enum PLAYER_ANIMATION_STATES {IDLE = 0, MOVING_LEFT, MOVING_RIGHT, JUMPING, FALLING};
 

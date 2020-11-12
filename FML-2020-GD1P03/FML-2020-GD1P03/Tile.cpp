@@ -30,6 +30,11 @@ const sf::FloatRect Tile::getGlobalBounds() const
 	return this->sprite.getGlobalBounds();
 }
 
+sf::Sprite Tile::GetSprite()
+{
+	return sprite;
+}
+
 void Tile::update()
 {
 }

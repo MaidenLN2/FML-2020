@@ -16,8 +16,11 @@
 
 #pragma once
 #include "Player.h"
+#include "collision.h"
 #include "background.h"
 #include "SceneNode.h"
+
+#include <vector>
 
 class Game
 {
@@ -29,6 +32,7 @@ private:
 	SceneNode* level;
 	Player* player;
 	background* Background;
+	collision* collisionHandler;
 	int levelCounter;
 
 	//Resources
@@ -41,6 +45,7 @@ private:
 	void initBackground();
 	void generateLevel(int _levelCounter);
 	void initPlayer();
+	void initCollision();
 
 public:
 	Game();
@@ -51,6 +56,7 @@ public:
 	void updateLevel();
 	void updatePlayer();
 	void updateCollision();
+	void collisionChecker();
 	void update();
 	void renderBG();
 	void renderLevel();

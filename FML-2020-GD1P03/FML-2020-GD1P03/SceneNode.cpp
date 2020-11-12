@@ -108,6 +108,11 @@ SceneNode::~SceneNode()
 	// remove this scenenode
 }
 
+TileMap* SceneNode::GetTileMap()
+{
+	return levelMap;
+}
+
 void SceneNode::Update(int _level)
 {
 	
