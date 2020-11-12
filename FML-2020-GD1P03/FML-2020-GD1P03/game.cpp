@@ -107,10 +107,9 @@ void Game::updateCollision()
 			this->window->getSize().y - this->player->getGlobalBounds().height - 23
 		);
 	}
-	else
-	{
-			collisionChecker();
-	}
+
+	collisionChecker(this->level->GetTileMap()->GetTiles());
+	
 	//else if (this->player->getPosition().y < 23.f) // Collision for top of screen
 	//{
 	//	this->player->setPosition(this->player->getPosition().x, 23);
@@ -129,17 +128,17 @@ void Game::updateCollision()
 
 }
 
-void Game::collisionChecker()
+void Game::collisionChecker(std::vector<std::vector<Tile*>> _tiles)
 {
 	//COLLECTING CHECK DATA FOR EACH OF THE COLLIDEABLE TILES
 
 	// Checking for collision with tile sprites
-	std::vector<std::vector<Tile*>> tiles = this->level->GetTileMap()->GetTiles();
+	//std::vector<std::vector<Tile*>> tiles = this->level->GetTileMap()->GetTiles();
 
 	//std::vector<std::vector<Tile*>>::iterator TileVecItRow;
 	//std::vector<Tile*>::iterator TileVecItCol;
 
-	std::vector<sf::Vector2<bool>> TilePlayerCollisionResults;
+	//std::vector<sf::Vector2<bool>> TilePlayerCollisionResults;
 
 	//Attempt one at iteration - this one would be entered into by the code but then wouldn't do anything, not sure why exactly
 
@@ -158,41 +157,47 @@ void Game::collisionChecker()
 	//tiles.clear();
 
 	//attempt 2 at iteration - should work in theory but for some reason the code never runs: tried it with breakpoints ut it never got to the breakpoints, even ones where it did with the first attempt
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < tiles[i].size(); j++)
+	/*for (int i = 0; i < 3; i++)
+	{*/
+		//for (int j = 0; j < _tiles[0].size(); j++)
 		{
-			if (tiles[i][j]->GetSprite().getGlobalBounds().width == 48 && tiles[i][j]->GetSprite().getGlobalBounds().height == 15
-				|| tiles[i][j]->GetSprite().getGlobalBounds().width == 15 && tiles[i][j]->GetSprite().getGlobalBounds().height == 48)
-			{
-				TilePlayerCollisionResults.push_back(this->collisionHandler->collisionCheck(tiles[i][j]->GetSprite(), this->player->getGlobalBounds()));
-			}
+	//		if (tiles[0].at(j)->GetSprite().getGlobalBounds().width == 48 && tiles[0].at(j)->GetSprite().getGlobalBounds().height == 15
+	//			|| tiles[0].at(j)->GetSprite().getGlobalBounds().width == 15 && tiles[0].at(j)->GetSprite().getGlobalBounds().height == 48)
+	//		{
+				//TilePlayerCollisionResults.push_back(this->collisionHandler->collisionCheck(tiles[0].at(j)->GetSprite(), this->player->getGlobalBounds()));
+	//		}
 		}
-	}
+	//}
 
 	
 	//PROCESSING COLLECTED DATA
 	//std::vector<Vector2<bool>>::iterator BoolVecIterator;
 
-	for (int i = 0; i < TilePlayerCollisionResults.size(); i++)
+	for (int i = 0; i < _tiles[0].size(); i++)
 	{
-		if (TilePlayerCollisionResults[i].x) // Handling x-axis collision first
-		{
-			this->player->setPosition(this->player->getPosition().x, this->player->getPosition().y - 420); // Not working, not sure why
-		}
+		//if (_tiles[0].at(i)->GetSprite().getGlobalBounds().width == 48 && _tiles[0].at(i)->GetSprite().getGlobalBounds().height == 15) // Handling x-axis collision first
+		//{
+			if (this->collisionHandler->collisionCheck(this->player->getSprite(), _tiles[0].at(i)->GetSprite()) == sf::Vector2<bool>(1,1))
+			{
+				this->player->setVelocity(this->player->getVelocityX(), 0.f);
+			}
+			//this->player->setPosition(this->player->getPosition().x, 20.f); // Not working, not sure why
+//		}
 
-		if (TilePlayerCollisionResults[i].y) // Then handling y-axis collision
-		{
-			this->player->setPosition(this->player->getPosition().x, this->player->getPosition().y - 420);
-		}
+		//if (TilePlayerCollisionResults[i].y) // Then handling y-axis collision
+		//{
+		//	this->player->resetVelocityY();
+		//}
 	}
+	/*TilePlayerCollisionResults.empty();*/
 }
 
 void Game::update()
 {
 	this->updatePollEvents();
-	this->updatePlayer();
 	this->updateCollision();
+	this->updatePlayer();
+
 }
 
 void Game::renderBG()
@@ -225,6 +230,5 @@ void Game::render()
 
 const sf::RenderWindow& Game::getWindow() const
 {
-	// TODO: insert return statement here
 	return *this->window;
 }

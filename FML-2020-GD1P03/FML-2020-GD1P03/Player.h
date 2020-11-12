@@ -57,11 +57,15 @@ public:
 	const sf::Vector2f getPosition() const;
 	const sf::FloatRect getGlobalBounds() const;
 	bool getJumping();
+	sf::Sprite getSprite();
+	float getVelocityX();
+	float getVelocityY();
 
 	//Modifiers
 	void setPosition(const float x, const float y);
 	void resetVelocityY();
 	void setJumping(bool _jumping);
+	void setVelocity(float x, float y);
 
 	//Functions
 	void resetAnimationTimer();

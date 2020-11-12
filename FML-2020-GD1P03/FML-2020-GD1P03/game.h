@@ -56,7 +56,7 @@ public:
 	void updateLevel();
 	void updatePlayer();
 	void updateCollision();
-	void collisionChecker();
+	void collisionChecker(std::vector<std::vector<Tile*>> _tiles);
 	void update();
 	void renderBG();
 	void renderLevel();

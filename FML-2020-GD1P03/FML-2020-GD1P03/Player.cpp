@@ -60,6 +60,10 @@ void Player::initPhysics()
 
 Player::Player()
 {
+	sf::Vector2f pos;
+	pos.x = 50.f;
+	pos.y = 50.f;
+	this->sprite.setPosition(pos);
 	this->initVariables();
 	this->initTexture();
 	this->initSprite();
@@ -96,6 +100,21 @@ bool Player::getJumping()
 	return this->jumping;
 }
 
+sf::Sprite Player::getSprite()
+{
+	return this->sprite;
+}
+
+float Player::getVelocityX()
+{
+	return this->velocity.x;
+}
+
+float Player::getVelocityY()
+{
+	return this->velocity.y;
+}
+
 void Player::setPosition(const float x, const float y)
 {
 	this->sprite.setPosition(x,y);
@@ -109,6 +128,12 @@ void Player::resetVelocityY()
 void Player::setJumping(bool _jumping)
 {
 	this->jumping = _jumping;
+}
+
+void Player::setVelocity(float x, float y)
+{
+	this->velocity.x = x;
+	this->velocity.y = y;
 }
 
 void Player::resetAnimationTimer()
