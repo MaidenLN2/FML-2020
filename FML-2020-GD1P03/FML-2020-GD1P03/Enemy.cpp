@@ -52,3 +52,23 @@ Enemy::Enemy(Image& image, float X, float Y, int W, int H, String Name)
 		dx = 0.1;// speed, dat shit moves
 	}
 }
+
+//void Move()
+//{
+//    // movement
+//    Vector2f playerPosition = Enemy::Entity().Player.getPosition();
+//    Vector2f thisPosition;
+//    thisPosition.x = xPos;
+//    thisPosition.y = yPos;
+//  
+//    speed = 5;
+//}
+//
+//Vector2f normalize(const Vector2f& source)
+//{
+//    float length = sqrt((source.x * source.x) + (source.y * source.y));
+//    if (length != 0)
+//        return Vector2f(source.x / length, source.y / length);
+//    else
+//        return source;
+//}
