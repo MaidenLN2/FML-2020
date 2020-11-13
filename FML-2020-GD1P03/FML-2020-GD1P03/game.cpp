@@ -41,19 +41,17 @@ void Game::checkLevelChange()
 		this->player->getCenterPos().y > this->level->getAcorn()->getGlobalBounds().top &&
 		this->player->getCenterPos().y < (this->level->getAcorn()->getGlobalBounds().top + this->level->getAcorn()->getGlobalBounds().height)) //Insert collision detection for acorn here.
 	{		
-		std::cout << "Check Success \n";
+		//std::cout << "Check Success \n";
 		if (this->levelCounter == 0)
 		{
 			this->levelCounter = 1;
 			this->player->setPosition(50.f, 50.f);
-			this->level->~SceneNode();
 			generateLevel(this->levelCounter);
 		}
 		else if (this->levelCounter == 1)
 		{
 			this->levelCounter = 0;
 			this->player->setPosition(50.f, 50.f);
-			this->level->~SceneNode();
 			generateLevel(this->levelCounter);
 		}
 	}
@@ -65,7 +63,7 @@ void Game::distanceDebug()
 	float yDif;
 	xDif = abs(this->player->getCenterPos().x - this->level->GetAcornPos().x);
 	yDif = abs(this->player->getCenterPos().y - this->level->GetAcornPos().y);
-	std::cout << "Diff in x = " << floor(xDif) << ". Diff in y = " << floor(yDif) << ". \n";
+	//std::cout << "Diff in x = " << floor(xDif) << ". Diff in y = " << floor(yDif) << ". \n";
 }
 
 void Game::initPlayer()
@@ -142,7 +140,7 @@ void Game::updateCollision()
 		);
 	}
 
-	//collisionChecker(this->level->GetTileMap()->GetTiles());
+	collisionChecker(this->level->GetTileMap()->GetTiles());
 	
 
 
@@ -231,10 +229,11 @@ void Game::collisionChecker(std::vector<std::vector<Tile*>> _tiles)
 
 void Game::update()
 {
+	this->checkLevelChange();
 	this->updatePollEvents();
 	this->updateCollision();
 	this->updatePlayer();
-	this->checkLevelChange();
+
 	this->distanceDebug();
 
 }

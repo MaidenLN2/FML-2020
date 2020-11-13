@@ -147,16 +147,19 @@ Vector2<bool> collision::collisionCheck(sf::Sprite Defending, sf::Sprite Attacki
 
     Vector2<bool> Check(0, 0);
 
-    if (DefendingBounds.left > AttackingBoundsRight || DefendingBoundsRight < AttackingBounds.left) // Check for x collision first
+    if (DefendingBounds.left < AttackingBoundsRight && DefendingBounds.left > AttackingBounds.left || 
+        DefendingBoundsRight > AttackingBounds.left && DefendingBoundsRight < AttackingBoundsRight) // Check for x collision first
     {
         Check.x = 1; // 1 Represents a collision on the x-axis
     }
     
-    if ((DefendingBounds.top > AttackingBoundsBottom || DefendingBoundsBottom < AttackingBounds.top)) // Check for y collision second
+    if ((DefendingBounds.top < AttackingBoundsBottom && DefendingBounds.top > AttackingBounds.top ||
+        DefendingBoundsBottom > AttackingBounds.top && DefendingBoundsBottom < AttackingBoundsBottom)) // Check for y collision second
     {
         Check.y = 1;  // 1 Represents a collision on the y-axis
     }
-
+    if (Check == sf::Vector2<bool>(1, 1))
+        std::cout << "Collision \n";
     return Check;
 }
 
