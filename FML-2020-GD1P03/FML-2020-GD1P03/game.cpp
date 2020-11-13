@@ -34,6 +34,40 @@ void Game::generateLevel(int _levelCounter)
 	this->level = new SceneNode(_levelCounter);
 }
 
+void Game::checkLevelChange()
+{
+	if (this->player->getCenterPos().x > this->level->getAcorn()->getGlobalBounds().left && 
+		this->player->getCenterPos().x < (this->level->getAcorn()->getGlobalBounds().left + this->level->getAcorn()->getGlobalBounds().width) &&
+		this->player->getCenterPos().y > this->level->getAcorn()->getGlobalBounds().top &&
+		this->player->getCenterPos().y < (this->level->getAcorn()->getGlobalBounds().top + this->level->getAcorn()->getGlobalBounds().height)) //Insert collision detection for acorn here.
+	{		
+		std::cout << "Check Success \n";
+		if (this->levelCounter == 0)
+		{
+			this->levelCounter = 1;
+			this->player->setPosition(50.f, 50.f);
+			this->level->~SceneNode();
+			generateLevel(this->levelCounter);
+		}
+		else if (this->levelCounter == 1)
+		{
+			this->levelCounter = 0;
+			this->player->setPosition(50.f, 50.f);
+			this->level->~SceneNode();
+			generateLevel(this->levelCounter);
+		}
+	}
+}
+
+void Game::distanceDebug()
+{
+	float xDif;
+	float yDif;
+	xDif = abs(this->player->getCenterPos().x - this->level->GetAcornPos().x);
+	yDif = abs(this->player->getCenterPos().y - this->level->GetAcornPos().y);
+	std::cout << "Diff in x = " << floor(xDif) << ". Diff in y = " << floor(yDif) << ". \n";
+}
+
 void Game::initPlayer()
 {
 	this->player = new Player();
@@ -108,8 +142,11 @@ void Game::updateCollision()
 		);
 	}
 
-	collisionChecker(this->level->GetTileMap()->GetTiles());
+	//collisionChecker(this->level->GetTileMap()->GetTiles());
 	
+
+
+
 	//else if (this->player->getPosition().y < 23.f) // Collision for top of screen
 	//{
 	//	this->player->setPosition(this->player->getPosition().x, 23);
@@ -189,7 +226,7 @@ void Game::collisionChecker(std::vector<std::vector<Tile*>> _tiles)
 		//	this->player->resetVelocityY();
 		//}
 	}
-	/*TilePlayerCollisionResults.empty();*/
+	/*TilePlayerCollisionResults.erase();*/
 }
 
 void Game::update()
@@ -197,6 +234,8 @@ void Game::update()
 	this->updatePollEvents();
 	this->updateCollision();
 	this->updatePlayer();
+	this->checkLevelChange();
+	this->distanceDebug();
 
 }
 

@@ -69,6 +69,8 @@ Player::Player()
 	this->initSprite();
 	this->initAnimations();
 	this->initPhysics();
+	this->centerPos.x = this->sprite.getGlobalBounds().left + (this->sprite.getGlobalBounds().width / 2);
+	this->centerPos.y = this->sprite.getGlobalBounds().top + (this->sprite.getGlobalBounds().height / 2);
 }
 
 Player::~Player()
@@ -88,6 +90,11 @@ const bool& Player::getAnimSwitch()
 const sf::Vector2f Player::getPosition() const
 {
 	return this->sprite.getPosition();
+}
+
+const sf::Vector2f Player::getCenterPos() const
+{
+	return this->centerPos;
 }
 
 const sf::FloatRect Player::getGlobalBounds() const
@@ -273,6 +280,8 @@ void Player::update()
 	this->updateMovement();
 	this->updateAnimations();
 	this->updatePhysics();
+	this->centerPos.x = this->sprite.getGlobalBounds().left + (this->sprite.getGlobalBounds().width / 2);
+	this->centerPos.y = this->sprite.getGlobalBounds().top + (this->sprite.getGlobalBounds().height / 2);
 }
 
 void Player::render(sf::RenderTarget& target)

@@ -33,6 +33,7 @@ private:
 
 	//Physics
 	sf::Vector2f velocity;
+	sf::Vector2f centerPos;
 	float velocityMax;
 	float velocityMin;
 	float acceleration;
@@ -55,6 +56,7 @@ public:
 	//Accessors
 	const bool& getAnimSwitch();
 	const sf::Vector2f getPosition() const;
+	const sf::Vector2f getCenterPos() const;
 	const sf::FloatRect getGlobalBounds() const;
 	bool getJumping();
 	sf::Sprite getSprite();

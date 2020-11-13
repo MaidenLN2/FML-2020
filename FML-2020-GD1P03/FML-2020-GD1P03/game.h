@@ -44,6 +44,8 @@ private:
 	void initWindow();
 	void initBackground();
 	void generateLevel(int _levelCounter);
+	void checkLevelChange();
+	void distanceDebug();
 	void initPlayer();
 	void initCollision();
 
