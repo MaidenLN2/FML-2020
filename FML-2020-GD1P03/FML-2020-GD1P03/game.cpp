@@ -210,19 +210,12 @@ void Game::collisionChecker(std::vector<std::vector<Tile*>> _tiles)
 
 	for (int i = 0; i < _tiles[0].size(); i++)
 	{
-		if ((_tiles[0].at(i)->GetSprite().getLocalBounds().width == 48) || (_tiles[0].at(i)->GetSprite().getLocalBounds().height == 15))
-		{
-			if ((this->collisionHandler->collisionCheck(_tiles[0].at(i)->GetSprite(), this->player->getSprite())) == sf::Vector2<bool>(1, 1))
-			{
-				this->player->setVelocity(this->player->getVelocityX(), this->player->getVelocityY() * -1);
-			}
-		}
 		//if (_tiles[0].at(i)->GetSprite().getGlobalBounds().width == 48 && _tiles[0].at(i)->GetSprite().getGlobalBounds().height == 15) // Handling x-axis collision first
 		//{
-			/*if (this->collisionHandler->collisionCheck(this->player->getSprite(), _tiles[0].at(i)->GetSprite()) == sf::Vector2<bool>(0,0))
+			if (this->collisionHandler->collisionCheck(this->player->getSprite(), _tiles[0].at(i)->GetSprite()) == sf::Vector2<bool>(1,1))
 			{
 				this->player->setVelocity(this->player->getVelocityX(), 0.f);
-			}*/
+			}
 			//this->player->setPosition(this->player->getPosition().x, 20.f); // Not working, not sure why
 //		}
 

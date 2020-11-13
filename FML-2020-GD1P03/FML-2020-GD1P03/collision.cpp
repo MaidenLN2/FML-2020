@@ -180,12 +180,12 @@ Vector2<bool> collision::collisionCheck(sf::Sprite Defending, sf::FloatRect Atta
 
     if (DefendingBounds.left > AttackingBoundsRight || DefendingBoundsRight < AttackingGlobalBounds.left) // Check for x collision first
     {
-        Check.x = true; // True represents a collision on the x-axis
+        Check.x = 1; // 1 Represents a collision on the x-axis
     }
 
     if ((DefendingBounds.top > AttackingBoundsBottom || DefendingBoundsBottom < AttackingGlobalBounds.top)) // Check for y collision second
     {
-        Check.y = true;  // True represents a collision on the y-axis
+        Check.y = 1;  // 1 Represents a collision on the y-axis
     }
 
     return Check;
