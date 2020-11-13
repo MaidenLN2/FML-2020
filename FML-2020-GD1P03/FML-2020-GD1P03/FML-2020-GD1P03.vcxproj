@@ -147,6 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Acorn.cpp" />
     <ClCompile Include="background.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="Totem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Acorn.h" />
     <ClInclude Include="background.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="Enemy.h" />

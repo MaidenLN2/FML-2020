@@ -15,6 +15,11 @@ TileMap::TileMap()
 
 TileMap::~TileMap()
 {
+	for (int i = 0; i < 3; i++)
+	{
+			tiles[i].clear();
+	}
+	delete this;
 }
 
 void TileMap::addTile(unsigned x, unsigned y, sf::Texture& _texture, sf::IntRect texture_rect, int _layer, float scale)
