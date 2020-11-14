@@ -41,19 +41,17 @@ void Game::checkLevelChange()
 		this->player->getCenterPos().y > this->level->getAcorn()->getGlobalBounds().top &&
 		this->player->getCenterPos().y < (this->level->getAcorn()->getGlobalBounds().top + this->level->getAcorn()->getGlobalBounds().height)) //Insert collision detection for acorn here.
 	{		
-		std::cout << "Check Success \n";
+		//std::cout << "Check Success \n";
 		if (this->levelCounter == 0)
 		{
 			this->levelCounter = 1;
 			this->player->setPosition(50.f, 50.f);
-			this->level->~SceneNode();
 			generateLevel(this->levelCounter);
 		}
 		else if (this->levelCounter == 1)
 		{
 			this->levelCounter = 0;
 			this->player->setPosition(50.f, 50.f);
-			this->level->~SceneNode();
 			generateLevel(this->levelCounter);
 		}
 	}
@@ -65,7 +63,7 @@ void Game::distanceDebug()
 	float yDif;
 	xDif = abs(this->player->getCenterPos().x - this->level->GetAcornPos().x);
 	yDif = abs(this->player->getCenterPos().y - this->level->GetAcornPos().y);
-	std::cout << "Diff in x = " << floor(xDif) << ". Diff in y = " << floor(yDif) << ". \n";
+	//std::cout << "Diff in x = " << floor(xDif) << ". Diff in y = " << floor(yDif) << ". \n";
 }
 
 void Game::initPlayer()
@@ -142,7 +140,7 @@ void Game::updateCollision()
 		);
 	}
 
-	//collisionChecker(this->level->GetTileMap()->GetTiles());
+	collisionChecker(this->level->GetTileMap()->GetTiles());
 	
 
 
@@ -212,19 +210,12 @@ void Game::collisionChecker(std::vector<std::vector<Tile*>> _tiles)
 
 	for (int i = 0; i < _tiles[0].size(); i++)
 	{
-		if ((_tiles[0].at(i)->GetSprite().getLocalBounds().width == 48) || (_tiles[0].at(i)->GetSprite().getLocalBounds().height == 15))
-		{
-			if ((this->collisionHandler->collisionCheck(_tiles[0].at(i)->GetSprite(), this->player->getSprite())) == sf::Vector2<bool>(1, 1))
-			{
-				this->player->setVelocity(this->player->getVelocityX(), this->player->getVelocityY() * -1);
-			}
-		}
 		//if (_tiles[0].at(i)->GetSprite().getGlobalBounds().width == 48 && _tiles[0].at(i)->GetSprite().getGlobalBounds().height == 15) // Handling x-axis collision first
 		//{
-			/*if (this->collisionHandler->collisionCheck(this->player->getSprite(), _tiles[0].at(i)->GetSprite()) == sf::Vector2<bool>(0,0))
+			if (this->collisionHandler->collisionCheck(this->player->getSprite(), _tiles[0].at(i)->GetSprite()) == sf::Vector2<bool>(1,1))
 			{
 				this->player->setVelocity(this->player->getVelocityX(), 0.f);
-			}*/
+			}
 			//this->player->setPosition(this->player->getPosition().x, 20.f); // Not working, not sure why
 //		}
 
@@ -238,10 +229,11 @@ void Game::collisionChecker(std::vector<std::vector<Tile*>> _tiles)
 
 void Game::update()
 {
+	this->checkLevelChange();
 	this->updatePollEvents();
 	this->updateCollision();
 	this->updatePlayer();
-	this->checkLevelChange();
+
 	this->distanceDebug();
 
 }
