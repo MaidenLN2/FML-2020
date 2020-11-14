@@ -19,11 +19,13 @@ class Tile
 {
 private:
 	sf::Sprite sprite;
+	sf::Vector2f centerPos;
 
 public:
 	Tile(sf::Texture& texture_sheet, sf::IntRect texture_rect, unsigned x, unsigned y, float scale);
 
 	const sf::FloatRect getGlobalBounds() const;
+	const sf::Vector2f getCenterPos() const;
 
 	sf::Sprite GetSprite();
 

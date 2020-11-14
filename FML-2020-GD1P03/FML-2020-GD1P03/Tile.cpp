@@ -23,11 +23,18 @@ Tile::Tile(sf::Texture& texture_sheet, sf::IntRect texture_rect, unsigned x, uns
 	this->sprite.setTextureRect(texture_rect);
 	this->sprite.setPosition(x, y);
 	this->sprite.setScale(scale, scale);
+	this->centerPos.x = this->sprite.getGlobalBounds().left + (this->sprite.getGlobalBounds().width / 2);
+	this->centerPos.y = this->sprite.getGlobalBounds().top + (this->sprite.getGlobalBounds().height / 2);
 }
 
 const sf::FloatRect Tile::getGlobalBounds() const
 {
 	return this->sprite.getGlobalBounds();
+}
+
+const sf::Vector2f Tile::getCenterPos() const
+{
+	return centerPos;
 }
 
 sf::Sprite Tile::GetSprite()

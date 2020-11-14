@@ -65,5 +65,9 @@ public:
 	void renderPlayer();
 	void render();
 	const sf::RenderWindow& getWindow() const;
+	void move(const float dir_x, const float dir_y, std::vector<std::vector<Tile*>> _tiles);
+	void updatePlayerMovement();
+
+	//void CollideWithMyAss(std::vector<std::vector<Tile*>> _tiles);
 };
 

@@ -140,7 +140,7 @@ void Game::updateCollision()
 		);
 	}
 
-	collisionChecker(this->level->GetTileMap()->GetTiles());
+	//collisionChecker(this->level->GetTileMap()->GetTiles());
 	
 
 
@@ -163,9 +163,28 @@ void Game::updateCollision()
 
 }
 
+//void Game::CollideWithMyAss(std::vector<std::vector<Tile*>> _tiles)
+//{
+//	for (int i = 0; i < _tiles[0].size(); i++)
+//	{
+//		if (this->player->getGlobalBounds().intersects(_tiles[0].at(i)->getGlobalBounds()));
+//		{
+//			//mPosition.x += x;
+//			//updateAABB();
+//			//checkCollisions(); // collect info of all tiles player intersects with
+//			//resolveXCollisions();
+//			//mPosition.y += y;
+//			//updateAABB();
+//			//checkCollisions();
+//			//resolveYCollisions();
+//		}
+//	}
+//}
+
 void Game::collisionChecker(std::vector<std::vector<Tile*>> _tiles)
 {
 	//COLLECTING CHECK DATA FOR EACH OF THE COLLIDEABLE TILES
+
 
 	// Checking for collision with tile sprites
 	//std::vector<std::vector<Tile*>> tiles = this->level->GetTileMap()->GetTiles();
@@ -195,13 +214,13 @@ void Game::collisionChecker(std::vector<std::vector<Tile*>> _tiles)
 	/*for (int i = 0; i < 3; i++)
 	{*/
 		//for (int j = 0; j < _tiles[0].size(); j++)
-		{
+	//	{
 	//		if (tiles[0].at(j)->GetSprite().getGlobalBounds().width == 48 && tiles[0].at(j)->GetSprite().getGlobalBounds().height == 15
 	//			|| tiles[0].at(j)->GetSprite().getGlobalBounds().width == 15 && tiles[0].at(j)->GetSprite().getGlobalBounds().height == 48)
 	//		{
 				//TilePlayerCollisionResults.push_back(this->collisionHandler->collisionCheck(tiles[0].at(j)->GetSprite(), this->player->getGlobalBounds()));
 	//		}
-		}
+	//	}
 	//}
 
 	
@@ -233,6 +252,7 @@ void Game::update()
 	this->updatePollEvents();
 	this->updateCollision();
 	this->updatePlayer();
+	this->updatePlayerMovement();
 
 	this->distanceDebug();
 
@@ -269,4 +289,132 @@ void Game::render()
 const sf::RenderWindow& Game::getWindow() const
 {
 	return *this->window;
+}
+
+void Game::move(const float dir_x, const float dir_y, std::vector<std::vector<Tile*>> _tiles)
+{
+	// The way the movement needs to be done in somewhat psuedocode - Zac mentioned that you can use .intersect() to see if collision is true and then set the position to be offset by the difference in positions
+
+	//mPosition.x += x; (can be potentially handled by updating the velocity and then getting the position right afterwards)
+	this->player->velocity.x += dir_x * this->player->acceleration;
+
+	//updateAABB();
+	sf::Vector2f updateCenterPos;
+	updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
+	updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+
+	this->player->setCenterPos(updateCenterPos);
+
+	//checkCollisions(); for loop that checks .intersects()
+	for (int i = 0; i < _tiles[0].size(); i++)
+	{
+		if (_tiles[0].at(i)->getGlobalBounds().width == 48 || _tiles[0].at(i)->getGlobalBounds().width == 15)
+		{
+			if (this->player->sprite.getGlobalBounds().intersects(_tiles[0].at(i)->getGlobalBounds()));
+			{
+				//left of tile
+				if (this->player->centerPos.x <= _tiles[0].at(i)->getCenterPos().x)
+				{
+					float temp = this->player->getPosition().x;
+					temp += -(this->player->sprite.getGlobalBounds().left + this->player->sprite.getGlobalBounds().width - _tiles[0].at(i)->getGlobalBounds().left);
+					this->player->setPosition(temp, this->player->getPosition().y);
+
+					//mPosition.x += -(mAABB.left + mAABB.width - collision.mBounds.left);
+
+					updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
+					updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+					this->player->setCenterPos(updateCenterPos);
+				}
+				//right of tile
+				if (this->player->centerPos.x >= _tiles[0].at(i)->getCenterPos().x)
+				{
+					float temp = this->player->getPosition().x;
+					temp += ((_tiles[0].at(i)->getGlobalBounds().left + _tiles[0].at(i)->getGlobalBounds().width) - this->player->sprite.getGlobalBounds().left);
+					this->player->setPosition(temp, this->player->getPosition().y);
+					//mPosition.x += (collision.mBounds.left + collision.mBounds.width) - mAABB.left;
+
+					updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
+					updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+					this->player->setCenterPos(updateCenterPos);
+				}
+			}
+		}
+	}
+
+	//resolveXCollisions(); this can be inside the above for loop, checking first for left collision then right collison and resolving each in that order as they happen
+
+	//mPosition.y += y; (can be potentially handled by updating the velocity and then getting the position right afterwards)
+	this->player->velocity.y += dir_y * this->player->acceleration;
+
+	//updateAABB();
+	updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
+	updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+
+	this->player->setCenterPos(updateCenterPos);
+
+	//checkCollisions(); for loop that checks .intersects()
+	for (int i = 0; i < _tiles[0].size(); i++)
+	{
+		if (_tiles[0].at(i)->getGlobalBounds().width == 48 || _tiles[0].at(i)->getGlobalBounds().width == 15)
+		{
+			if (this->player->sprite.getGlobalBounds().intersects(_tiles[0].at(i)->getGlobalBounds()));
+			{
+				//top of tile
+				if (this->player->centerPos.y <= _tiles[0].at(i)->getCenterPos().y)
+				{
+					float temp = this->player->getPosition().y;
+					temp += -(this->player->sprite.getGlobalBounds().top + this->player->sprite.getGlobalBounds().height - _tiles[0].at(i)->getGlobalBounds().top);
+					this->player->setPosition(this->player->getPosition().x, temp);
+
+					updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
+					updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+					this->player->setCenterPos(updateCenterPos);
+				}
+				//bottom of tile
+				if (this->player->centerPos.y >= _tiles[0].at(i)->getCenterPos().y)
+				{
+					float temp = this->player->getPosition().y;
+					temp += ((_tiles[0].at(i)->getGlobalBounds().top + _tiles[0].at(i)->getGlobalBounds().height) - this->player->sprite.getGlobalBounds().top);
+					this->player->setPosition(this->player->getPosition().x, temp);
+
+					updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
+					updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+					this->player->setCenterPos(updateCenterPos);
+				}
+			}
+		}
+	}
+
+	//resolveYCollisions(); this can be inside the above for loop, checking first for top collision then bottom collison and resolving each in that order as they happen
+
+	//Limit Velocity
+	if (std::abs(this->player->velocity.x) > this->player->velocityMax)
+	{
+		this->player->velocity.x = this->player->velocityMax * ((this->player->velocity.x < 0.f) ? -1.f : 1.f);
+	}
+}
+
+void Game::updatePlayerMovement()
+{
+	if (!this->player->getJumping())
+		this->player->animState = IDLE;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) //Move left
+	{
+		this->move(-1.f, 0.f, this->level->GetTileMap()->GetTiles());
+		if (!this->player->getJumping())
+			this->player->animState = MOVING_LEFT;
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) //Move Right
+	{
+		this->move(1.f, 0.f, this->level->GetTileMap()->GetTiles());
+		if (!this->player->getJumping())
+			this->player->animState = MOVING_RIGHT;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && this->player->jumping == false) //Jump
+	{
+		this->move(0.f, -120.f, this->level->GetTileMap()->GetTiles());
+		this->player->animState = JUMPING;
+		this->player->setJumping(true);
+	}
 }

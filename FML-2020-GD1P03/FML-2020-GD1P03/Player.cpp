@@ -92,7 +92,7 @@ const sf::Vector2f Player::getPosition() const
 	return this->sprite.getPosition();
 }
 
-const sf::Vector2f Player::getCenterPos() const
+sf::Vector2f Player::getCenterPos()
 {
 	return this->centerPos;
 }
@@ -122,6 +122,12 @@ float Player::getVelocityY()
 	return this->velocity.y;
 }
 
+void Player::setCenterPos(sf::Vector2f updateCenterPos)
+{
+	this->centerPos.x = updateCenterPos.x;
+	this->centerPos.y = updateCenterPos.y;
+}
+
 void Player::setPosition(const float x, const float y)
 {
 	this->sprite.setPosition(x,y);
@@ -149,7 +155,55 @@ void Player::resetAnimationTimer()
 	this->animationSwitch = true;
 }
 
-void Player::move(const float dir_x, const float dir_y)
+//void Player::move(const float dir_x, const float dir_y, std::vector<std::vector<Tile*>> _tiles)
+//{
+//	// The way the movement needs to be done in somewhat psuedocode
+//
+//	//mPosition.x += x; (can be potentially handled by updating the velocity and then getting the position right afterwards)
+//	this->velocity.x += dir_x * this->acceleration;
+//
+//	//updateAABB();
+//	sf::Vector2f updateCenterPos;
+//	updateCenterPos.x = (this->sprite.getGlobalBounds().left + (this->sprite.getGlobalBounds().width / 2));
+//	updateCenterPos.y = (this->sprite.getGlobalBounds().top + (this->sprite.getGlobalBounds().height / 2));
+//
+//	setCenterPos(updateCenterPos);
+//
+//	//checkCollisions(); for loop that checks .intersects()
+//	for (int i = 0; i < _tiles[0].size(); i++)
+//	{
+//		if (this->sprite.getGlobalBounds().intersects(_tiles[0].at(i)->getGlobalBounds()));
+//		{
+//
+//		}
+//	}
+//
+//	//resolveXCollisions(); this can be inside the above for loop, checking first for left collision then right collison and resolving each in that order as they happen
+//
+//	//mPosition.y += y; (can be potentially handled by updating the velocity and then getting the position right afterwards)
+//	this->velocity.y += dir_y * this->acceleration;
+//
+//	//updateAABB();
+//	updateCenterPos.x = (this->sprite.getGlobalBounds().left + (this->sprite.getGlobalBounds().width / 2));
+//	updateCenterPos.y = (this->sprite.getGlobalBounds().top + (this->sprite.getGlobalBounds().height / 2));
+//
+//	setCenterPos(updateCenterPos);
+//
+//	//checkCollisions(); for loop that checks .intersects()
+//
+//	//resolveYCollisions(); this can be inside the above for loop, checking first for top collision then bottom collison and resolving each in that order as they happen
+//
+//	//Acceleration
+//
+//	//Limit Velocity
+//	if (std::abs(velocity.x) > this->velocityMax)
+//	{
+//		this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
+//	}
+//}
+
+/*
+Copy of working Player::move()
 {
 	//Acceleration
 	this->velocity.x += dir_x * this->acceleration;
@@ -161,6 +215,7 @@ void Player::move(const float dir_x, const float dir_y)
 		this->velocity.x = this->velocityMax * ((this->velocity.x < 0.f) ? -1.f : 1.f);
 	}
 }
+*/
 
 void Player::updatePhysics()
 {
@@ -183,30 +238,30 @@ void Player::updatePhysics()
 	this->sprite.move(this->velocity);
 }
 
-void Player::updateMovement()
-{
-	if(!this->getJumping())
-		this->animState = IDLE;
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) //Move left
-	{
-		this->move(-1.f, 0.f);
-		if(!this->getJumping())
-		this->animState = MOVING_LEFT;
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) //Move Right
-	{
-		this->move(1.f, 0.f);
-		if (!this->getJumping())
-		this->animState = MOVING_RIGHT;
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && jumping == false) //Jump
-	{
-		this->move(0.f, -120.f);
-		this->animState = JUMPING;
-		this->setJumping(true);
-	}
-}
+//void Player::updateMovement()
+//{
+//	if(!this->getJumping())
+//		this->animState = IDLE;
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) //Move left
+//	{
+//		this->move(-1.f, 0.f);
+//		if(!this->getJumping())
+//		this->animState = MOVING_LEFT;
+//	}
+//	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) //Move Right
+//	{
+//		this->move(1.f, 0.f);
+//		if (!this->getJumping())
+//		this->animState = MOVING_RIGHT;
+//	}
+//
+//	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && jumping == false) //Jump
+//	{
+//		this->move(0.f, -120.f);
+//		this->animState = JUMPING;
+//		this->setJumping(true);
+//	}
+//}
 
 void Player::updateAnimations()
 {
@@ -277,11 +332,11 @@ void Player::updateAnimations()
 
 void Player::update()
 {
-	this->updateMovement();
+	//this->updateMovement();
 	this->updateAnimations();
 	this->updatePhysics();
-	this->centerPos.x = this->sprite.getGlobalBounds().left + (this->sprite.getGlobalBounds().width / 2);
-	this->centerPos.y = this->sprite.getGlobalBounds().top + (this->sprite.getGlobalBounds().height / 2);
+	//this->centerPos.x = this->sprite.getGlobalBounds().left + (this->sprite.getGlobalBounds().width / 2);
+	//this->centerPos.y = this->sprite.getGlobalBounds().top + (this->sprite.getGlobalBounds().height / 2);
 }
 
 void Player::render(sf::RenderTarget& target)
