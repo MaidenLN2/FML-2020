@@ -54,6 +54,9 @@ void Game::checkLevelChange()
 			this->player->setPosition(50.f, 50.f);
 			generateLevel(this->levelCounter);
 		}
+		int j = this->level->getBats().size();
+		for (int i = 0; i < j; i++)
+			this->level->getBats().pop_back();
 	}
 }
 
@@ -120,6 +123,7 @@ void Game::updatePollEvents()
 
 void Game::updateLevel()
 {
+	this->level->Update();
 }
 
 void Game::updatePlayer()
@@ -253,6 +257,7 @@ void Game::update()
 	this->updateCollision();
 	this->updatePlayer();
 	this->updatePlayerMovement();
+	this->updateLevel();
 
 	this->distanceDebug();
 
@@ -296,12 +301,12 @@ void Game::move(const float dir_x, const float dir_y, std::vector<std::vector<Ti
 	// The way the movement needs to be done in somewhat psuedocode - Zac mentioned that you can use .intersect() to see if collision is true and then set the position to be offset by the difference in positions
 
 	//mPosition.x += x; (can be potentially handled by updating the velocity and then getting the position right afterwards)
-	this->player->velocity.x += dir_x * this->player->acceleration;
+	this->player->setVelocity(this->player->getVelocityX() + (dir_x * this->player->getAcceleration()), this->player->getVelocityY());
 
 	//updateAABB();
 	sf::Vector2f updateCenterPos;
-	updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
-	updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+	updateCenterPos.x = (this->player->getSprite().getGlobalBounds().left + (this->player->getSprite().getGlobalBounds().width / 2));
+	updateCenterPos.y = (this->player->getSprite().getGlobalBounds().top + (this->player->getSprite().getGlobalBounds().height / 2));
 
 	this->player->setCenterPos(updateCenterPos);
 
@@ -310,31 +315,31 @@ void Game::move(const float dir_x, const float dir_y, std::vector<std::vector<Ti
 	{
 		if (_tiles[0].at(i)->getGlobalBounds().width == 48 || _tiles[0].at(i)->getGlobalBounds().width == 15)
 		{
-			if (this->player->sprite.getGlobalBounds().intersects(_tiles[0].at(i)->getGlobalBounds()));
+			if (this->player->getSprite().getGlobalBounds().intersects(_tiles[0].at(i)->getGlobalBounds()));
 			{
 				//left of tile
-				if (this->player->centerPos.x <= _tiles[0].at(i)->getCenterPos().x)
+				if (this->player->getCenterPos().x <= _tiles[0].at(i)->getCenterPos().x)
 				{
 					float temp = this->player->getPosition().x;
-					temp += -(this->player->sprite.getGlobalBounds().left + this->player->sprite.getGlobalBounds().width - _tiles[0].at(i)->getGlobalBounds().left);
+					temp += -(this->player->getSprite().getGlobalBounds().left + this->player->getSprite().getGlobalBounds().width - _tiles[0].at(i)->getGlobalBounds().left);
 					this->player->setPosition(temp, this->player->getPosition().y);
 
 					//mPosition.x += -(mAABB.left + mAABB.width - collision.mBounds.left);
 
-					updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
-					updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+					updateCenterPos.x = (this->player->getSprite().getGlobalBounds().left + (this->player->getSprite().getGlobalBounds().width / 2));
+					updateCenterPos.y = (this->player->getSprite().getGlobalBounds().top + (this->player->getSprite().getGlobalBounds().height / 2));
 					this->player->setCenterPos(updateCenterPos);
 				}
 				//right of tile
-				if (this->player->centerPos.x >= _tiles[0].at(i)->getCenterPos().x)
+				if (this->player->getCenterPos().x >= _tiles[0].at(i)->getCenterPos().x)
 				{
 					float temp = this->player->getPosition().x;
-					temp += ((_tiles[0].at(i)->getGlobalBounds().left + _tiles[0].at(i)->getGlobalBounds().width) - this->player->sprite.getGlobalBounds().left);
+					temp += ((_tiles[0].at(i)->getGlobalBounds().left + _tiles[0].at(i)->getGlobalBounds().width) - this->player->getSprite().getGlobalBounds().left);
 					this->player->setPosition(temp, this->player->getPosition().y);
 					//mPosition.x += (collision.mBounds.left + collision.mBounds.width) - mAABB.left;
 
-					updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
-					updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+					updateCenterPos.x = (this->player->getSprite().getGlobalBounds().left + (this->player->getSprite().getGlobalBounds().width / 2));
+					updateCenterPos.y = (this->player->getSprite().getGlobalBounds().top + (this->player->getSprite().getGlobalBounds().height / 2));
 					this->player->setCenterPos(updateCenterPos);
 				}
 			}
@@ -344,11 +349,11 @@ void Game::move(const float dir_x, const float dir_y, std::vector<std::vector<Ti
 	//resolveXCollisions(); this can be inside the above for loop, checking first for left collision then right collison and resolving each in that order as they happen
 
 	//mPosition.y += y; (can be potentially handled by updating the velocity and then getting the position right afterwards)
-	this->player->velocity.y += dir_y * this->player->acceleration;
+	this->player->setVelocity(this->player->getVelocityX(), this->player->getVelocityY() + (dir_y * this->player->getAcceleration()));
 
 	//updateAABB();
-	updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
-	updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+	updateCenterPos.x = (this->player->getSprite().getGlobalBounds().left + (this->player->getSprite().getGlobalBounds().width / 2));
+	updateCenterPos.y = (this->player->getSprite().getGlobalBounds().top + (this->player->getSprite().getGlobalBounds().height / 2));
 
 	this->player->setCenterPos(updateCenterPos);
 
@@ -357,28 +362,28 @@ void Game::move(const float dir_x, const float dir_y, std::vector<std::vector<Ti
 	{
 		if (_tiles[0].at(i)->getGlobalBounds().width == 48 || _tiles[0].at(i)->getGlobalBounds().width == 15)
 		{
-			if (this->player->sprite.getGlobalBounds().intersects(_tiles[0].at(i)->getGlobalBounds()));
+			if (this->player->getSprite().getGlobalBounds().intersects(_tiles[0].at(i)->getGlobalBounds()));
 			{
 				//top of tile
-				if (this->player->centerPos.y <= _tiles[0].at(i)->getCenterPos().y)
+				if (this->player->getCenterPos().y <= _tiles[0].at(i)->getCenterPos().y)
 				{
 					float temp = this->player->getPosition().y;
-					temp += -(this->player->sprite.getGlobalBounds().top + this->player->sprite.getGlobalBounds().height - _tiles[0].at(i)->getGlobalBounds().top);
+					temp += -(this->player->getSprite().getGlobalBounds().top + this->player->getSprite().getGlobalBounds().height - _tiles[0].at(i)->getGlobalBounds().top);
 					this->player->setPosition(this->player->getPosition().x, temp);
 
-					updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
-					updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+					updateCenterPos.x = (this->player->getSprite().getGlobalBounds().left + (this->player->getSprite().getGlobalBounds().width / 2));
+					updateCenterPos.y = (this->player->getSprite().getGlobalBounds().top + (this->player->getSprite().getGlobalBounds().height / 2));
 					this->player->setCenterPos(updateCenterPos);
 				}
 				//bottom of tile
-				if (this->player->centerPos.y >= _tiles[0].at(i)->getCenterPos().y)
+				if (this->player->getCenterPos().y >= _tiles[0].at(i)->getCenterPos().y)
 				{
 					float temp = this->player->getPosition().y;
-					temp += ((_tiles[0].at(i)->getGlobalBounds().top + _tiles[0].at(i)->getGlobalBounds().height) - this->player->sprite.getGlobalBounds().top);
+					temp += ((_tiles[0].at(i)->getGlobalBounds().top + _tiles[0].at(i)->getGlobalBounds().height) - this->player->getSprite().getGlobalBounds().top);
 					this->player->setPosition(this->player->getPosition().x, temp);
 
-					updateCenterPos.x = (this->player->sprite.getGlobalBounds().left + (this->player->sprite.getGlobalBounds().width / 2));
-					updateCenterPos.y = (this->player->sprite.getGlobalBounds().top + (this->player->sprite.getGlobalBounds().height / 2));
+					updateCenterPos.x = (this->player->getSprite().getGlobalBounds().left + (this->player->getSprite().getGlobalBounds().width / 2));
+					updateCenterPos.y = (this->player->getSprite().getGlobalBounds().top + (this->player->getSprite().getGlobalBounds().height / 2));
 					this->player->setCenterPos(updateCenterPos);
 				}
 			}
@@ -388,33 +393,33 @@ void Game::move(const float dir_x, const float dir_y, std::vector<std::vector<Ti
 	//resolveYCollisions(); this can be inside the above for loop, checking first for top collision then bottom collison and resolving each in that order as they happen
 
 	//Limit Velocity
-	if (std::abs(this->player->velocity.x) > this->player->velocityMax)
+	if (std::abs(this->player->getVelocityX()) > this->player->getVelocityMax())
 	{
-		this->player->velocity.x = this->player->velocityMax * ((this->player->velocity.x < 0.f) ? -1.f : 1.f);
+		this->player->setVelocity(this->player->getVelocityMax() * ((this->player->getVelocityX() < 0.f) ? -1.f : 1.f), this->player->getVelocityY());
 	}
 }
 
 void Game::updatePlayerMovement()
 {
 	if (!this->player->getJumping())
-		this->player->animState = IDLE;
+		this->player->setAnimState(IDLE);
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) //Move left
 	{
 		this->move(-1.f, 0.f, this->level->GetTileMap()->GetTiles());
 		if (!this->player->getJumping())
-			this->player->animState = MOVING_LEFT;
+			this->player->setAnimState(MOVING_LEFT);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) //Move Right
 	{
 		this->move(1.f, 0.f, this->level->GetTileMap()->GetTiles());
 		if (!this->player->getJumping())
-			this->player->animState = MOVING_RIGHT;
+			this->player->setAnimState(MOVING_RIGHT);
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && this->player->jumping == false) //Jump
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W) && this->player->getJumping() == false) //Jump
 	{
 		this->move(0.f, -120.f, this->level->GetTileMap()->GetTiles());
-		this->player->animState = JUMPING;
+		this->player->setAnimState(JUMPING);
 		this->player->setJumping(true);
 	}
 }

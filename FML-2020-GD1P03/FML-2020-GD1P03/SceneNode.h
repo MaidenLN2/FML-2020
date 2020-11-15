@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "TileMap.h"
 #include "Acorn.h"
+#include "Bat.h"
 class SceneNode
 {
 protected:
@@ -9,6 +10,7 @@ protected:
     sf::Texture textureSheet2;
     TileMap* levelMap;
     Acorn* acorn;
+    std::vector<Bat*> bats;
 
 
 public:
@@ -23,11 +25,12 @@ public:
     TileMap* GetTileMap();
     Acorn* getAcorn();
     sf::Vector2f GetAcornPos();
+    std::vector<Bat*> getBats();
 
     //Functions
     // update our scene node
     void SceneInit(int _level);
-    void Update(int _level);
+    void Update();
     void Render(sf::RenderTarget& target);
 };
 
