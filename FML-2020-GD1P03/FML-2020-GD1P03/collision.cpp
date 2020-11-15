@@ -137,12 +137,12 @@ Vector2<bool> collision::collisionCheck(sf::Sprite Defending, sf::Sprite Attacki
     //setBounds();
     // Defending sprite's global bounds and associated functions
     sf::FloatRect DefendingBounds = Defending.getGlobalBounds();
-    auto DefendingBoundsBottom = (DefendingBounds.top - DefendingBounds.height);
+    auto DefendingBoundsBottom = (DefendingBounds.top + DefendingBounds.height);
     auto DefendingBoundsRight = (DefendingBounds.left + DefendingBounds.width);
 
     // Attacking sprite's global bounds and associated functions
     sf::FloatRect AttackingBounds = Attacking.getGlobalBounds();
-    auto AttackingBoundsBottom = (AttackingBounds.top - AttackingBounds.height);
+    auto AttackingBoundsBottom = (AttackingBounds.top + AttackingBounds.height);
     auto AttackingBoundsRight = (AttackingBounds.left + AttackingBounds.width);
 
     Vector2<bool> Check(0, 0);
@@ -169,21 +169,21 @@ Vector2<bool> collision::collisionCheck(sf::Sprite Defending, sf::FloatRect Atta
 
     // Defending sprite's global bounds and associated functions
     sf::FloatRect DefendingBounds = Defending.getGlobalBounds();
-    auto DefendingBoundsBottom = (DefendingBounds.top - DefendingBounds.height);
+    auto DefendingBoundsBottom = (DefendingBounds.top + DefendingBounds.height);
     auto DefendingBoundsRight = (DefendingBounds.left + DefendingBounds.width);
 
     // Attacking sprite's global bounds and associated functions
-    auto AttackingBoundsBottom = (AttackingGlobalBounds.top - AttackingGlobalBounds.height);
+    auto AttackingBoundsBottom = (AttackingGlobalBounds.top + AttackingGlobalBounds.height);
     auto AttackingBoundsRight = (AttackingGlobalBounds.left + AttackingGlobalBounds.width);
 
     Vector2<bool> Check(0, 0);
 
-    if (DefendingBounds.left > AttackingBoundsRight || DefendingBoundsRight < AttackingGlobalBounds.left) // Check for x collision first
+    if (DefendingBounds.left > AttackingBoundsRight && DefendingBoundsRight < AttackingGlobalBounds.left) // Check for x collision first
     {
         Check.x = 1; // 1 Represents a collision on the x-axis
     }
 
-    if ((DefendingBounds.top > AttackingBoundsBottom || DefendingBoundsBottom < AttackingGlobalBounds.top)) // Check for y collision second
+    if ((DefendingBounds.top > AttackingBoundsBottom && DefendingBoundsBottom < AttackingGlobalBounds.top)) // Check for y collision second
     {
         Check.y = 1;  // 1 Represents a collision on the y-axis
     }

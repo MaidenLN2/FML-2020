@@ -40,7 +40,7 @@ void TileMap::update()
 
 void TileMap::render(sf::RenderTarget& target)
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < tiles.size(); i++)
 	{
 		for (int j = 0; j < this->tiles[i].size(); j++)
 		{

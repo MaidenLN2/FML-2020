@@ -2,8 +2,10 @@
 C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\collision.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\Totem.h(16,1): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(230,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(309,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(356,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(313,94): warning C4390: ';': empty controlled statement found; is this the intent?
-C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(360,94): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(311,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(358,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(400,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(426,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(326,107): warning C4390: ';': empty controlled statement found; is this the intent?
+C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\FML-2020-GD1P03\game.cpp(404,107): warning C4390: ';': empty controlled statement found; is this the intent?
   FML-2020-GD1P03.vcxproj -> C:\Users\YOS.exe\Desktop\FML2020\FML-2020\FML-2020-GD1P03\Debug\FML-2020-GD1P03.exe

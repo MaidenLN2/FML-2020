@@ -65,8 +65,11 @@ public:
 	void renderPlayer();
 	void render();
 	const sf::RenderWindow& getWindow() const;
-	void move(const float dir_x, const float dir_y, std::vector<std::vector<Tile*>> _tiles);
+	void move(const float dir_x, const float dir_y/*, std::vector<std::vector<Tile*>> _tiles*/);
 	void updatePlayerMovement();
+	void updatePlayerCenterPos(Vector2f& playerCenterPos);
+
+	//float SweptAABB(sf::Sprite b1, sf::Sprite b2, float& normalx, float& normaly);
 
 	//void CollideWithMyAss(std::vector<std::vector<Tile*>> _tiles);
 };

@@ -23,7 +23,8 @@
 #include <map>
 #include <sstream>
 #include <cstdlib> 
-#include <cstdio> 
+#include <cstdio>
+#include <algorithm>
 
 //SFML
 #include <SFML/System.hpp>
