@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="Acorn.cpp" />
     <ClCompile Include="background.cpp" />
+    <ClCompile Include="Bat.cpp" />
     <ClCompile Include="collision.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -168,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="Acorn.h" />
     <ClInclude Include="background.h" />
+    <ClInclude Include="Bat.h" />
     <ClInclude Include="collision.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />

@@ -122,6 +122,21 @@ float Player::getVelocityY()
 	return this->velocity.y;
 }
 
+float Player::getVelocityMax()
+{
+	return this->velocityMax;
+}
+
+float Player::getAcceleration()
+{
+	return this->acceleration;
+}
+
+short Player::getAnimState()
+{
+	return this->animState;
+}
+
 void Player::setCenterPos(sf::Vector2f updateCenterPos)
 {
 	this->centerPos.x = updateCenterPos.x;
@@ -147,6 +162,11 @@ void Player::setVelocity(float x, float y)
 {
 	this->velocity.x = x;
 	this->velocity.y = y;
+}
+
+void Player::setAnimState(short _state)
+{
+	this->animState = _state;
 }
 
 void Player::resetAnimationTimer()

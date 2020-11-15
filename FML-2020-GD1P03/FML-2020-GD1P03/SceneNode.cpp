@@ -4,6 +4,7 @@
 void SceneNode::SceneInit(int _level)
 {
 	levelMap = new TileMap;
+
 	if (!this->textureSheet1.loadFromFile("Assets/Tilesets/Dungeon Ruins Tileset Day.png"))
 		std::cout << "ERROR::SCENENODE::Assets/Tilesets/Dungeon Ruins Tileset Day.png failed to load." << "\n";
 	if (!this->textureSheet2.loadFromFile("Assets/Tilesets/Dungeon Ruins Tileset Night.png"))
@@ -73,6 +74,8 @@ void SceneNode::SceneInit(int _level)
 		}
 		this->levelMap->addTile(364, 504, textureSheet1, sf::IntRect(80, 16, 48, 48), 0, 1.52f);
 		// initialise Enemies
+		Bat* bat = new Bat(100.f, 100.f, 200.f);
+		this->bats.push_back(bat);
 
 		// initialise Win Destination
 		acorn = new Acorn(750.f, 525.f);
@@ -159,13 +162,25 @@ sf::Vector2f SceneNode::GetAcornPos()
 	return pos;
 }
 
-void SceneNode::Update(int _level)
+std::vector<Bat*> SceneNode::getBats()
 {
-	
+	return this->bats;
+}
+
+void SceneNode::Update()
+{
+	for (int i = 0; i < bats.size(); i++)
+	{
+		bats.at(i)->update(bats.at(i)->getStartX(), bats.at(i)->getDestX());
+	}
 }
 
 void SceneNode::Render(sf::RenderTarget& target)
 {
 	this->levelMap->render(target);
 	this->acorn->Render(target);
+	for (int i = 0 ; i < bats.size(); i++)
+	{
+		bats.at(i)->render(target);
+	}
 }

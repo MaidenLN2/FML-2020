@@ -21,7 +21,7 @@ enum PLAYER_ANIMATION_STATES {IDLE = 0, MOVING_LEFT, MOVING_RIGHT, JUMPING, FALL
 
 class Player
 {
-public:
+private:
 	sf::Texture textureSheet;
 	sf::Sprite sprite;
 	sf::Clock animationTimer;
@@ -49,7 +49,7 @@ public:
 	void initAnimations();
 	void initPhysics();
 
-
+public:
 	Player();
 	virtual ~Player();
 
@@ -62,6 +62,9 @@ public:
 	sf::Sprite getSprite();
 	float getVelocityX();
 	float getVelocityY();
+	float getVelocityMax();
+	float getAcceleration();
+	short getAnimState();
 
 	//Modifiers
 	void setCenterPos(sf::Vector2f updateCenterPos);
@@ -69,6 +72,7 @@ public:
 	void resetVelocityY();
 	void setJumping(bool _jumping);
 	void setVelocity(float x, float y);
+	void setAnimState(short _state);
 
 	//Functions
 	void resetAnimationTimer();
